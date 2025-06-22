@@ -11,7 +11,7 @@ const productRoutes = require("./routes/productRoutes");
 const path = require("path");
 const app = express();
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 // Load environment variables
 dotenv.config();
@@ -30,7 +30,7 @@ app.use("/firm", firmRoutes);
 app.use("/product", productRoutes);
 app.use("/uploads", express.static("uploads"));
 // Route setup
-app.use("/home", (req, res) => {
+app.use("/", (req, res) => {
   res.send("<h1> Welcome to Vishnu Restaurant</h1>");
 });
 // Start the server
