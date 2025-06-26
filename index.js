@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const vendorRoutes = require("./routes/vendorRoutes");
 const firmRoutes = require("./routes/firmRoutes");
 const productRoutes = require("./routes/productRoutes");
+const cors = require("cors");
 const path = require("path");
 const app = express();
 
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 4000;
 
 // Load environment variables
 dotenv.config();
+app.use(cors());
 
 // Connect to MongoDB
 mongoose
