@@ -2,6 +2,7 @@ const Firm = require("../models/Firm");
 const Product = require("../models/Product");
 // To add images we use multer
 const multer = require("multer");
+const path = require("path");
 // To add the product images like biryani,pizzas,tiffens etc
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -65,7 +66,7 @@ const deleteProductById = async (req, res) => {
   try {
     const productId = req.params.productId;
     const deletedProduct = await Product.findByIdAndDelete(productId);
-    if (!deleteProduct) {
+    if (!deletedProduct) {
       return res.status(404).json({ error: "No Product Found" });
     }
   } catch (error) {

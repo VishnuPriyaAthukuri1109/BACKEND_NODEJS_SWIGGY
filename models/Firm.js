@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const firmSchema = new mongoose.Schema({
   // Firm Name indicates that the restaruent name
-  firmname: {
+  firmName: {
     type: String,
     required: true,
     unique: true,
