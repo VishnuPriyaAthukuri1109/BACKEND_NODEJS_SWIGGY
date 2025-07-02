@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const firmSchema = new mongoose.Schema({
-  // Firm Name indicates that the restaruent name
   firmName: {
     type: String,
     required: true,
@@ -12,11 +11,9 @@ const firmSchema = new mongoose.Schema({
     required: true,
   },
   category: {
-    // Category will have the multiple values like veg and non veg so we are declaring the array
     type: [
       {
         type: String,
-        // Enum will take the multiple values
         enum: ["veg", "non-veg"],
       },
     ],
@@ -32,15 +29,12 @@ const firmSchema = new mongoose.Schema({
   offer: {
     type: String,
   },
-
   image: {
     type: String,
   },
-  //   To establish the relation between the two models we are using the standard defination of the mongoose
   vendor: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      // This firm table is referenced with the vendor table
       ref: "Vendor",
     },
   ],
@@ -51,5 +45,7 @@ const firmSchema = new mongoose.Schema({
     },
   ],
 });
+
 const Firm = mongoose.model("Firm", firmSchema);
+
 module.exports = Firm;
